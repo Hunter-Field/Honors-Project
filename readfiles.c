@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+
+////counts the number of stores in the file
 int CountLines(FILE * fptr){
   int numline = 0;
   while(!feof(fptr)){
@@ -17,7 +19,10 @@ int CountLines(FILE * fptr){
 
 
 #ifdef TEST_READ
+
+////takes in a file, a gas price, and a gas milage
 bool CarRead(char * filename, double * gasPrice, double * gasMilage){
+  
   ////opens the file
   FILE * fptr;
   
@@ -36,7 +41,6 @@ bool CarRead(char * filename, double * gasPrice, double * gasMilage){
   ////scans the file and puts contents into variables
   double price = 0;
   double milage = 0;
-
   if(fscanf(fptr, "%lf %lf\n", &price, &milage) != 2){
     fclose(fptr);
     return false;
@@ -49,7 +53,9 @@ bool CarRead(char * filename, double * gasPrice, double * gasMilage){
   return true;
 }
 
+////takes in a file, a pointer to a store object, and the number of stores
 bool StoreRead(char * filename, Store * * stores, int * numelem){
+  
   ////opens the file
   FILE * fptr;
 
@@ -77,6 +83,8 @@ bool StoreRead(char * filename, Store * * stores, int * numelem){
     return false;
   }
 
+
+  ////reopens the file to reset it
   fptr = fopen(filename, "r");
   if(fptr == NULL){
     return false;
@@ -92,7 +100,6 @@ bool StoreRead(char * filename, Store * * stores, int * numelem){
   }
 
   fclose(fptr);
-
   * numelem = numline;
   * stores = ptr;
   

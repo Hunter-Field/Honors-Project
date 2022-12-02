@@ -15,13 +15,13 @@ int main(int argc, char **argv){
   
   double gasPrice;
   double milage;
-  if(CarRead(argv[1], &gasPrice, &milage) == false) {
+  if(CarRead(argv[1], &gasPrice, &milage) == false){
     return EXIT_FAILURE;
   }
 
   Store * sto;
   int numelem;
-  if(StoreRead(argv[2], &sto, &numelem) == false) {
+  if(StoreRead(argv[2], &sto, &numelem) == false){
     return EXIT_FAILURE;
   }
 
