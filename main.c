@@ -19,15 +19,11 @@ int main(int argc, char **argv){
     return EXIT_FAILURE;
   }
 
-  printf("CAR HAS BEEN READ\n");
-
   Store * sto;
   int numelem;
   if(StoreRead(argv[2], &sto, &numelem) == false) {
     return EXIT_FAILURE;
   }
-
-  printf("STORES HAVE BEEN READ\n");
 
   if(PrintBest(argv[3], sto, numelem, gasPrice, milage) == false){
     return EXIT_FAILURE;

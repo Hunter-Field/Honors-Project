@@ -10,9 +10,13 @@ $(EXEC): $(OBJS) main.h
 
 test: $(EXEC)
 	./$(EXEC) testcases/car1 testcases/input1 output1
+	./$(EXEC) testcases/car2 testcases/input2 output2
+	./$(EXEC) testcases/car3 testcases/input3 output3
 
 diff: $(EXEC)
 	diff -w output1 expected/expected1
+	diff -w output2 expected/expected2
+	diff -w output3 expected/expected3
 
 memory: $(EXEC)
 	$(VALGRIND) --log-file=log1 ./$(EXEC) testcases/car1 testcases/input1 output1

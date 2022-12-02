@@ -12,14 +12,10 @@ bool PrintBest(char * filename, Store * stores, int numelem, double gasPrice, do
     return false;
   }
   
-  
-  
   double pricePerMile = gasPrice / milage;
   
   int indexOfBest = 0;
   double cheapest = 1000000000;
-
-  printf("PRINT FUNCTION RUNS");
 
   double tempPrice = 0;
   for(int i = 0; i < numelem; i++){
@@ -29,8 +25,8 @@ bool PrintBest(char * filename, Store * stores, int numelem, double gasPrice, do
         indexOfBest = i;
     }
   }
-  
-  fprintf(fptr, "The cheapest option is %s with the cost of $%lf.\n", stores[indexOfBest].name, cheapest);
+
+  fprintf(fptr, "The cheapest option is %s with the cost of $%.2lf.\n", stores[indexOfBest].name, cheapest);
   
   free(stores);
   fclose(fptr);
